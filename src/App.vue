@@ -9,14 +9,15 @@
       <div class="col-md-12">
         <formulario-persona @add-persona="agregarPersona" />
         <tabla-personas 
-        :personas="personas" 
-        @delete-persona="eliminarPersona" 
-        @actualizar-persona="actualizarPersona"
+          :personas="personas" 
+          @delete-persona="eliminarPersona" 
+          @actualizar-persona="actualizarPersona"
         />
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import TablaPersonas from '@/components/TablaPersonas.vue'
 import FormularioPersona from '@/components/FormularioPersona.vue'
