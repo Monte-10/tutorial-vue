@@ -105,7 +105,7 @@
             return this.persona.email.length < 1;
         },
     },
-  }
+  };
   </script>
   
   <style scoped>
