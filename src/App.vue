@@ -34,7 +34,6 @@ export default {
     };
   },
 
-  /* Métodos */
   methods: {
     async listadoPersona() {
       try {
@@ -85,11 +84,11 @@ export default {
         console.error(error);
       }
     },
-
-    mounted() {
-      this.listadoPersona();
-    },
   },
+  
+  mounted() {
+      this.listadoPersona();
+  }
 }
 </script>
 <style>
