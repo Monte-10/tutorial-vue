@@ -34,6 +34,7 @@ export default {
     };
   },
 
+  /* Métodos */
   methods: {
     async listadoPersona() {
       try {
