@@ -31,14 +31,13 @@ export default {
   data() {
     return {
       personas: [],
-    }
+    };
   },
 
   methods: {
     async listadoPersona() {
       try {
         const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/');
-        console.log(response);
         this.personas = await response.json();
       } catch (error) {
         console.error(error);
@@ -47,10 +46,9 @@ export default {
 
     async agregarPersona(persona) {
       try {
-        const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/', {
+      const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/', {
         method: 'POST',
         body: JSON.stringify(persona),
-
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
       });
 
@@ -86,11 +84,11 @@ export default {
         console.error(error);
       }
     },
-  },
 
-  mounted() {
+    mounted() {
       this.listadoPersona();
     },
+  },
 }
 </script>
 <style>
