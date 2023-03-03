@@ -31,13 +31,14 @@ export default {
   data() {
     return {
       personas: [],
-    };
+    }
   },
 
   methods: {
     async listadoPersona() {
       try {
-        const response = await fetch('https://my.json-server.typicode.com/rmarabini/people/personas/');
+        const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/');
+        console.log(response);
         this.personas = await response.json();
       } catch (error) {
         console.error(error);
@@ -46,9 +47,10 @@ export default {
 
     async agregarPersona(persona) {
       try {
-      const response = await fetch('https://my.json-server.typicode.com/rmarabini/people/personas/', {
+        const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/', {
         method: 'POST',
         body: JSON.stringify(persona),
+
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
       });
 
@@ -61,7 +63,7 @@ export default {
 
     async eliminarPersona(persona_id) {
       try {
-        await fetch('https://my.json-server.typicode.com/rmarabini/people/personas/' + persona_id+'/', {
+        await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/' + persona_id+'/', {
           method: 'DELETE'
         });
       this.personas = this.personas.filter(u => u.id !== persona_id);
@@ -72,7 +74,7 @@ export default {
 
     async actualizarPersona(id, personaActualizada) {
       try {
-        const response = await fetch('https://my.json-server.typicode.com/rmarabini/people/personas/' + personaActualizada.id+'/', {
+        const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/' + personaActualizada.id+'/', {
           method: 'PUT',
           body: JSON.stringify(personaActualizada),
           headers: { 'Content-Type': 'application/json; charset=UTF-8' },
@@ -84,11 +86,11 @@ export default {
         console.error(error);
       }
     },
+  },
 
-    mounted() {
+  mounted() {
       this.listadoPersona();
     },
-  },
 }
 </script>
 <style>
