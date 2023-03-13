@@ -50,62 +50,62 @@
   </template>
   
   <script>
-  export default {
-    name: 'formulario-persona',
-    data() {
-      return {
-        procesando: false,
-        correcto: false,
-        error: false,
-        persona: {
-          nombre: '',
-          email: '',
-          apellido: '',
-        },
-      }
-    },
-    methods: {
-      enviarFormulario() {
-        this.procesando = true;
-        this.resetEstado();
-
-        if (this.nombreInvalido || this.apellidoInvalido || this.emailInvalido) {
-          this.error = true;
-          return;
+    export default {
+      name: 'formulario-persona',
+      data() {
+        return {
+          procesando: false,
+          correcto: false,
+          error: false,
+          persona: {
+            nombre: '',
+            email: '',
+            apellido: '',
+          },
         }
+      },
+      methods: {
+        enviarFormulario() {
+          this.procesando = true;
+          this.resetEstado();
 
-        this.$emit('add-persona', this.persona);
-        this.$refs.nombre.focus();
+          if (this.nombreInvalido || this.apellidoInvalido || this.emailInvalido) {
+            this.error = true;
+            return;
+          }
 
-        this.error = false;
-        this.correcto = true;
-        this.procesando = false;
+          this.$emit('add-persona', this.persona);
+          this.$refs.nombre.focus();
 
-        this.persona = {
-          nombre: '',
-          email: '',
-          apellido: '',
+          this.error = false;
+          this.correcto = true;
+          this.procesando = false;
+
+          this.persona = {
+            nombre: '',
+            email: '',
+            apellido: '',
+          }
+        },
+
+        resetEstado() {
+          this.correcto = false;
+          this.error = false;
         }
       },
 
-      resetEstado() {
-        this.correcto = false;
-        this.error = false;
-      }
-    },
-
-    computed: {
-        nombreInvalido() {
-            return this.persona.nombre.length < 1;
-        },
-        apellidoInvalido() {
-            return this.persona.apellido.length < 1;
-        },
-        emailInvalido() {
-            return this.persona.email.length < 1;
-        },
-    },
-  };
+      computed: {
+          nombreInvalido() {
+              return this.persona.nombre.length < 1;
+          },
+          apellidoInvalido() {
+              return this.persona.apellido.length < 1;
+          },
+          emailInvalido() {
+              return this.persona.email.length < 1;
+          },
+      },
+    };
   </script>
   
   <style scoped>
